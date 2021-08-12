@@ -1,28 +1,18 @@
 # Data 23 Star Wars Project
 
-## Instructions
+## Overview
 
-The character data in your MongoDB database has been pulled from https://swapi.dev/.
-As well as 'people', the API has data on starships.
-Using Python, write code to pull data on all available starships from the API.
-The "pilots" key contains URLs pointing to the characters who pilot the starship.
-Use these to replace 'pilots' with a list of ObjectIDs from our characters collection, then insert the starships into their own collection in MongoDB.
-(Make sure you drop any existing starships collections.)
+In this project, I will be using SWAPI (Star Wars API), https://swapi.dev/, to access data about star ships in Star Wars.
+I will transform this data and insert it into a collection in MongoDB using Python.
+Part of the transforming process is to link any embedded API URLs with matching information (specifically pilot info) from my characters collection in MongoDB.
 
-You have until 11am on Monday.
+## Methods
 
-## Requirements
+I will be using TDD throughout my project.
+I will be using OOP in Python by creating classes to handle API get requests and to manage collections in MongoDB for example.
+I will be using Trello to monitor my progress in the project.
 
-- Use good coding principles.  That means testing, appropriate comments, good naming conventions and handling errors gracefully.
-- Follow PEP 8
-- Create a job board in Trello or similar to keep track of your user stories.  Provide a link to that job board in your version of this README.
-- Your code should utilise functional programming OR object-oriented programming
-- Use Test Driven Development: write your tests first
+## Trello
 
-## Using this repo
-
-- Branch off from main.
-- Use your own name for the name of the branch (e.g. mine would be PaulaKedra - please copy this format).
-- Make sure you commit and push to the remote repo frequently to keep your work up-to-date.
-- The gitignore should catch most unnecessary project files, but do pay attention to what you are adding to the repo.
-- Replace this README with an appropriate README for your project (including a link to your job board).
+Follow this link to check out my Trello page: https://trello.com/b/6fuZAocK/starwars
+This will include my user stories on the backlog as well as all the tasks I am currently completing or have already done.
