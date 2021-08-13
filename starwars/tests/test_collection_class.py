@@ -34,7 +34,11 @@ class CollectionTests(unittest.TestCase):
     def test_h_name(self):
         self.assertEqual(self.star_test.name, "starships")
 
-    def test_i_clear(self):
-        self.star_test.clear()
-        self.assertEqual(self.star_test.size, 0)
+    def test_i_insert(self):
+        test_doc = {'name': 'death star', 'capacity': 1000}
+        self.star_test.insert(test_doc)
+        self.assertEqual(self.star_test.search('death star')['capacity'], 1000)
 
+    def test_j_clear(self):
+        self.star_test.clear()
+        self.assertEqual(self.star_test.db.starships.estimated_document_count(), 0)

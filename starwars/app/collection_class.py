@@ -43,3 +43,9 @@ class Starships(Collection):
 
     def clear(self):
         self.db.starships.delete_many({})
+
+    def search(self, name: str):
+        return self.db.starships.find_one({'name': name})
+
+    def insert(self, document: dict):
+        self.db.starships.insert_one(document)
