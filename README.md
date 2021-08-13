@@ -9,7 +9,7 @@ Part of the transforming process is to link any embedded API URLs with matching 
 ## Methods
 
 I will be using TDD throughout my project.  
-I will be using OOP in Python by creating classes to handle API get requests and to manage collections in MongoDB for example.  
+I will be using OOP in Python by creating classes to handle API get requests and to manage collections in MongoDB.  
 I will be using Trello to monitor my progress in the project.
 
 ## Trello
