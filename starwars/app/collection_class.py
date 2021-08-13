@@ -22,6 +22,10 @@ class Characters(Collection):
             content[item['name']] = item
         return content
 
+    def search(self, name: str):
+        query = self.db.characters.find_one({'name': name}, {'_id': 1})
+        return 'ObjectId("' + str(query['_id']) + '")'
+
 
 class Starships(Collection):
 
@@ -39,4 +43,3 @@ class Starships(Collection):
 
     def clear(self):
         self.db.starships.delete_many({})
-

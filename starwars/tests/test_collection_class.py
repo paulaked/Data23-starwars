@@ -25,11 +25,16 @@ class CollectionTests(unittest.TestCase):
         self.assertEqual(type(self.char_test.content['Darth Vader']), dict)
         self.assertEqual(self.char_test.content['Ackbar']['eye_color'], 'orange')
 
+    def test_f_search(self):
+        self.assertEqual(self.char_test.search('Luke Skywalker'), 'ObjectId("6113b535b103dc95f7e6903e")')
+        self.assertEqual(self.char_test.search('Yoda'), 'ObjectId("6113b5683f828072dc446189")')
+
     star_test = Starships()
 
-    def test_f_name(self):
+    def test_h_name(self):
         self.assertEqual(self.star_test.name, "starships")
 
     def test_i_clear(self):
         self.star_test.clear()
         self.assertEqual(self.star_test.size, 0)
+
