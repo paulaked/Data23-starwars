@@ -14,16 +14,16 @@ class Tests(unittest.TestCase):
         try:
             find_character_id("Luke Skywalker")
         except AssertionError:
-            self.fail("api_request raised an exception unexpectedly")
+            self.fail("find_character_id raised an exception unexpectedly")
 
     def test_add_pilot_id(self):
         try:
             add_pilot_id(api_request("https://swapi.dev/api/starships/2"))
         except AssertionError:
-            self.fail("api_request raised an exception unexpectedly")
+            self.fail("add_pilot_id raised an exception unexpectedly")
 
     def test_create_starships_list(self):
         try:
             create_starships_list()
         except AssertionError:
-            self.fail("api_request raised an exception unexpectedly")
+            self.fail("create_starships_list raised an exception unexpectedly")
