@@ -9,11 +9,7 @@ def api_call():
         call = requests.get(next_url)
         next_url = call.json()["next"]
         response.append(call.json()["results"])
-    starship = []
-    for page in response:
-        for starhip in page:
-            output.append(starship)
-    return starship
+    return response
 
 
 
