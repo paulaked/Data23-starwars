@@ -2,31 +2,29 @@
 
 import requests
 import json
-import pymongo
-from pprint import pprint as pp
 
 
-client = pymongo.MongoClient("mongodb://localhost:27017")
-db = client['starwars']
-col = db["starships"]
+def api_call(url):  # this is to check that our api call works
+    response = requests.get(url)
+    return response
 
-
-def crawl_starships(url):
+def crawl_api(url):  # this is to get the results of our api
     response = requests.get(url)
     api_results = json.loads(response.content)
-    for starship in api_results['results']:
-        yield starship
+    for item in api_results['results']:
+        yield item
     if 'next' in api_results and api_results['next'] is not None:
-        next_page = crawl_starships(api_results['next'])
+        next_page = crawl_api(api_results['next'])
         for page in next_page:
             yield page
 
-stsh = crawl_starships("https://swapi.dev/api/starships")
-for result in stsh:
-    list_starships = []
-    list_starships.append(result)
-    pp(list_starships)
-    x = col.insert_one(result)
-    print(x)
+def api_api(url):  #this to to get results where there is no next
+    response = requests.get(url)
+    api_results = (response.json())
+    return api_results
 
+def mongdb_name_id(name):  #this is to get all the names and object ids from the characters part
+    name_id = db.characters.find({'name': name}, {'name': 1, '_id': 1})
+    for ni in name_id:
+        return ni
 
