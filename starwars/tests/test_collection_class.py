@@ -12,7 +12,7 @@ class CollectionTests(unittest.TestCase):
 
     # test to see if the correct database has been connected to
     def test_b_db(self):
-        self.assertEqual(self.col_test.db.list_collection_names(), ['characters', 'starships'])
+        self.assertEqual(self.col_test.db.list_collection_names(), ['films', 'characters', 'starships'])
 
     char_test = Characters()
 
@@ -45,13 +45,41 @@ class CollectionTests(unittest.TestCase):
     def test_i_insert(self):
         test_doc = {'name': 'death star', 'capacity': 1000}
         test_doc2 = {'name': 'TIE fighter', 'pilot name': 'Darth Vader'}
+        size = self.star_test.db.starships.estimated_document_count()
         self.star_test.insert(test_doc)
         self.star_test.insert(test_doc2)
         self.assertEqual(type(self.star_test.search('death star')), dict)
         self.assertEqual(self.star_test.search('death star')['capacity'], 1000)
         self.assertEqual(self.star_test.search('TIE fighter')['pilot name'], 'Darth Vader')
+        self.assertEqual(self.star_test.size, size + 2)
 
     # test to see if the clear function deletes all documents from the collection
     def test_j_clear(self):
         self.star_test.clear()
         self.assertEqual(self.star_test.size, 0)
+
+    film_test = Films()
+
+    # test to see if the insert function correctly inserts a document into the films collection
+    def test_k_insert(self):
+        test_doc = {'title': 'title', 'length': 135}
+        test_doc2 = {'title': 'title2', 'director': 'Joe Bloggs'}
+        size = self.star_test.db.films.estimated_document_count()
+        self.film_test.insert(test_doc)
+        self.film_test.insert(test_doc2)
+        self.assertEqual(type(self.film_test.search_details('title')), dict)
+        self.assertEqual(self.film_test.search_details('title')['length'], 135)
+        self.assertEqual(self.film_test.search_details('title2')['director'], 'Joe Bloggs')
+        self.assertEqual(self.film_test.size, size + 2)
+
+    # test to see if the correct objectIDs are returned for each film
+    def test_l_search(self):
+        query = self.film_test.db.films.find_one({"title": "title"}, {"_id": 1})["_id"]
+        query2 = self.film_test.db.films.find_one({"title": "title2"}, {"_id": 1})["_id"]
+        self.assertEqual(self.film_test.search('title'), query)
+        self.assertEqual(self.film_test.search('title2'), query2)
+
+    # test to see if the clear function deletes all documents from the collection
+    def test_m_clear(self):
+        self.film_test.clear()
+        self.assertEqual(self.film_test.size, 0)

@@ -23,7 +23,6 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(str(self.api_test.get(self.api_test.url)), '<Response [200]>')
 
     starship_test = Api("https://swapi.dev/api/starships/")
-    starships = starship_test.results()
 
     # test to see if the url variable is storing the correct information
     def test_e_starships_url(self):
@@ -45,17 +44,30 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(self.starship_test.pilot_name('https://swapi.dev/api/people/15/'), 'Greedo')
         self.assertEqual(self.starship_test.pilot_name('https://swapi.dev/api/people/51/'), 'Mace Windu')
 
+    films_test = Api("https://swapi.dev/api/films/")
+
+    # test to see if the film_name method returns the correct film name
+    def test_i_film_names(self):
+        self.assertEqual(self.films_test.film_name("https://swapi.dev/api/films/1/"), "A New Hope")
+        self.assertEqual(self.films_test.film_name("https://swapi.dev/api/films/4/"), "The Phantom Menace")
+        self.assertEqual(self.films_test.film_name("https://swapi.dev/api/films/5/"), "Attack of the Clones")
+
+    # test to see if the transform_films method returns the correct fields
+    def test_j_transform_films(self):
+        films = self.films_test.transform_films()
+        self.assertEqual(list(films[0].keys()),
+                         ['title', 'episode_id', 'opening_crawl', 'director', 'producer', 'release_date', 'url'])
+
     people_test = Api("https://swapi.dev/api/people/")
 
     # test to see if the url variable is storing the correct information
-    def test_i_people_url(self):
+    def test_k_people_url(self):
         self.assertEqual(self.people_test.url, "https://swapi.dev/api/people/")
 
     # test to check if the API get request was successful
-    def test_j_people_status(self):
+    def test_l_people_status(self):
         self.assertEqual(self.people_test.status_code, 200)
 
     # test to see is the results method pulls data from all pages via the SWAPI
-    def test_k_people_results(self):
+    def test_m_people_results(self):
         self.assertEqual(len(self.people_test.results()), 82)
-
