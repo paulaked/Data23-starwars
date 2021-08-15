@@ -1,5 +1,5 @@
 def pilot_name_dict(all_pages):
-    from init_mongodb import mongo_setup
+    from app.init_mongodb import mongo_setup
     db = mongo_setup()
     import requests
     ship_pilot_dict = {}
