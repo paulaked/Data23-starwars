@@ -1,9 +1,5 @@
 import requests
-import os
-import json
-import pymongo
 
-PROJECT_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 def api_call():
     response = []
     call = requests.get("https://swapi.dev/api/starships")
