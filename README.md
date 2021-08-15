@@ -11,6 +11,25 @@ Use these to replace 'pilots' with a list of ObjectIDs from our characters colle
 
 You have until 11am on Monday.
 
+## My Solution
+
+![image](https://user-images.githubusercontent.com/88028643/129494533-c27c6aaf-ca4d-4976-bb01-d3d170a5c844.png)
+
+Link to trello board: https://trello.com/b/KBclmT2B/starship-collections
+
+
+
+
+
+
+## Further Project Details
+.
+.
+.
+.
+.
+
+
 ## Requirements
 
 - Use good coding principles.  That means testing, appropriate comments, good naming conventions and handling errors gracefully.
@@ -25,6 +44,5 @@ You have until 11am on Monday.
 - Use your own name for the name of the branch (e.g. mine would be PaulaKedra - please copy this format).
 - Make sure you commit and push to the remote repo frequently to keep your work up-to-date.
 - The gitignore should catch most unnecessary project files, but do pay attention to what you are adding to the repo.
-- Replace this README with an appropriate README for your project (including a link to your job board).
 
-Link to trello board: https://trello.com/b/KBclmT2B/starship-collections
+
