@@ -8,4 +8,5 @@ db = mongo_setup()
 ship_pilot_dict = pilot_name_dict(all_pages)
 all_pages = add_obj_id(all_pages,ship_pilot_dict)
 for page in all_pages:
+    print(page)
     db.starship.insert_many(page)

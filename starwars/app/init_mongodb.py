@@ -5,5 +5,5 @@ def mongo_setup():
     """
     client = pymongo.MongoClient()
     db = client['starwars']
-    db.starships.drop()
+    db.starship.drop()
     return db
