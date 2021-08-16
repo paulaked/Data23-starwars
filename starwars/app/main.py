@@ -16,6 +16,7 @@ for result in starship_response:
     col.insert_one(result)
 
 
+
 pilot_name = []
 pilot = sa.api_call("https://swapi.dev/api/people")
 pilot_response = sa.crawl_api("https://swapi.dev/api/people")

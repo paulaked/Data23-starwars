@@ -17,11 +17,14 @@ class ttd(unittest.TestCase):  # create a class to test everything
     # def api_output_correct(self):  # we need to make sure we are getting all of the starship data
     #     self.assertEqual(self.list_starships, 36)  # there are 36 starships - no more movies planned so should be good
 
+    def test_crawl(self):
+        self.assertEqual(str(sa.crawl_api("https://swapi.dev/api/starships/75/")), "<generator object crawl_api at 0x101627bd0>")
+
     # def mongo_connect(self):  # you want to make sure its connecting to mongodb
     #
     # def mongo_collection(self):  # you want to make sure that a starship collection is being made
 
-    # def mongo_document(self):  # check if 36 collections are being made
+    # def test_mongo_document(self):  # check if 36 collections are being made
     #     self.assertEqual(self.mongo_len, "36")
 
     # def mongo_characters(self):  # check if this works?
