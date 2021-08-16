@@ -1,7 +1,8 @@
 import validators
 import pytest
-
 from app.api import api_request, api_call
+
+
 # test that api call is valid, error code 200
 def test_apicode():
      response, url, status = api_request([], "https://swapi.dev/api/starships")
@@ -14,11 +15,7 @@ def test_url():
 
 
 
-# test that ship json has an object id in the pilot section
 
-# check that a corresponding pilot id is the starships json
-
-# call the startships object from mongdo db and compare to the original json
 
 
 

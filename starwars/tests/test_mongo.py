@@ -1,8 +1,11 @@
 import pytest
+import pymongo
 from app.init_mongodb import mongo_setup
 
-def drop_test():
-    db = mongo_setup()
-    db.starships.update_one({"test":"foo"})
+def test_drop():
+    client = pymongo.MongoClient()
+    db = client['starwars']
+    db.create_collection("starship")
     mongo_setup()
-    assert db.starship.stats(scale) == 0
+    assert "starship" not in db.list_collection_names(), "checks that mongo_setup delets existing starship collection"
+

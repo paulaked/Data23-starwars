@@ -1,4 +1,13 @@
 def pilot_name_dict(all_pages):
+    """
+    This function requires a lot of work,
+    currently it does far too much
+    it is also very slow.
+    The function takes all the starship data, calls the api for each pilot to extract the pilot names, then swaps out
+    pilot name for an objecte id. It returns a dictionary of ship names and pilot object ids
+    :param all_pages:
+    :return ship_pilot_dict dictionary with shipnames as keys and list of pilot object ids as values:
+    """
     from app.init_mongodb import mongo_setup
     db = mongo_setup()
     import requests
