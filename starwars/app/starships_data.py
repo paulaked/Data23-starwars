@@ -6,6 +6,7 @@ client = pymongo.MongoClient()
 db = client['starwars']
 base_url = 'https://swapi.dev/api/'
 
+
 # imports raw data from url to collection in database
 def import_data():
     # deletes any pre-existing collections called starships

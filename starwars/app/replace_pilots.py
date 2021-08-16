@@ -22,10 +22,3 @@ def replace_pilots():
             pilot_ids.append(pilot_object["_id"])
         # replace starships pilots list with list of pilot ObjectId's
         db.starships.update_one({"name": starship["name"]}, {"$set": {"pilots": pilot_ids}})
-
-
-
-
-
-
-

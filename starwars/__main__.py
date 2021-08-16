@@ -8,11 +8,9 @@ if __name__ == '__main__':
 
     client = pymongo.MongoClient()
     db = client['starwars']
-    base_url = 'https://swapi.dev/api/'
 
     import_data()
     replace_pilots()
     all_starships = db.starships.find({})
     for starship in all_starships:
         pprint(starship)
-
