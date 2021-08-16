@@ -12,9 +12,16 @@ def import_data():
     db.drop_collection("starships")
     # creating new starships collection
     starships = db["starships"]
-    # iterates through 80 entries and inserts an entry when data is returned
-    for i in range(1, 81):
-        if requests.head('https://swapi.dev/api/starships/%i/' %i).status_code == 200:
-            resp = requests.get('https://swapi.dev/api/starships/%i/' % i)
-            data = resp.json()
-            starships.insert_one(data)
+    # As long as next page exists go to next page
+    valid_page = True
+    i = 1
+    while valid_page:
+        # get data from page in json from
+        resp = requests.get('https://swapi.dev/api/starships/?page=%i' % i)
+        data = resp.json()
+        # insert starship data from results key
+        for starship in data["results"]:
+            starships.insert_one(starship)
+        i += 1
+        if data['next'] is None:
+            valid_page = False
