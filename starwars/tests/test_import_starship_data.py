@@ -7,6 +7,7 @@ db = client['starwars']
 
 
 def test_created_starship():
+    db.drop_collection("starships")
     import_data()
     assert "starships" in db.list_collection_names()
 
