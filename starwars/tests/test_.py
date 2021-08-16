@@ -1,10 +1,12 @@
 import unittest
+from starwars import app as ap
 
-import starship_api as sa
+import pymongo
 
 class ttd(unittest.TestCase):  # creat a class to test everything
 
-    api_call = sa.api_call()
+    api_call = ap.api_call()
+    mongo_len = ap.starships.count({})
 
     def api_connection_test(self):  # we need to test that we are getting a good response from api
         self.assertEqual(self.api_call, "<Response [200]>")  # 200 = good response
@@ -15,8 +17,9 @@ class ttd(unittest.TestCase):  # creat a class to test everything
     # def mongo_connect(self):  # you want to make sure its connecting to mongodb
     #
     # def mongo_collection(self):  # you want to make sure that a starship collection is being made
-    #
-    # def mongo_document(self):  #check if 36 collections are being made
+
+    def mongo_document(self):  #check if 36 collections are being made
+        self.assertEqual(self.mongo_len, "36")
     #
     # def mongo_characters(self):  # check if this works?
 
