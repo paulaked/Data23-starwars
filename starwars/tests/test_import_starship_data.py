@@ -1,6 +1,6 @@
 import pymongo
 import requests
-from starships_data import import_data
+from starwars.app.starships_data import import_data
 
 client = pymongo.MongoClient()
 db = client['starwars']

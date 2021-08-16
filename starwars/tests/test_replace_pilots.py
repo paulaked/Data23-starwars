@@ -1,7 +1,7 @@
 import pymongo
 import requests
-from replace_pilots import replace_pilots
-from starships_data import import_data
+from starwars.app.replace_pilots import replace_pilots
+from starwars.app.starships_data import import_data
 
 client = pymongo.MongoClient()
 db = client['starwars']
