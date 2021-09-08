@@ -34,4 +34,4 @@ def test_setup_collections():
 
     # Test a starship that exist is in the collection
     ship = db.starship.find_one({'name': 'Star Destroyer'})
-    assert char['name'] == 'Star Destroyer'
+    assert ship['name'] == 'Star Destroyer'
